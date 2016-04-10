@@ -1,0 +1,40 @@
+FROM python:3.4.3
+
+
+
+RUN \
+  apt-get update -qq && \
+  apt-get install -y netcat && \
+  apt-get -y install gettext && \
+  rm -rf /var/lib/apt/lists/* && \
+  pip install circus gunicorn
+
+
+RUN \
+  mkdir -p /usr/local/taiga && \
+  useradd -d /usr/local/taiga taiga && \
+  git clone https://github.com/taigaio/taiga-back.git /usr/local/taiga/taiga-back && \
+  mkdir /usr/local/taiga/media /usr/local/taiga/static /usr/local/taiga/logs && \
+  cd /usr/local/taiga/taiga-back && \
+  git checkout stable && \
+  pip install -r requirements.txt
+ 
+#COPY local.py.model /usr/local/taiga/settings/local.py
+RUN touch /usr/local/taiga/taiga-back/settings/local.py
+#RUN cd /usr/local/taiga/taiga-back && python manage.py compilemessages
+
+COPY local.py.env /usr/local/taiga/local.py.env
+VOLUME /usr/local/taiga/media
+VOLUME /usr/local/taiga/static
+VOLUME /usr/local/taiga/logs
+
+
+
+
+EXPOSE 8000
+
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+

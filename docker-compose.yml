@@ -1,0 +1,41 @@
+
+data:
+  image: tianon/true
+  volumes:
+    - /var/lib/postgresql/data
+    - /usr/local/taiga/media
+    - /usr/local/taiga/static
+    - /usr/local/taiga/logs
+db:
+  image: postgres
+  environment:
+    POSTGRES_USER: taiga
+    POSTGRES_PASSWORD: password
+  volumes_from:
+    - data
+taigaback:
+  image: originals/taiga-back
+  hostname: dev.magnus.com
+  environment:
+    EMAIL_USE_TLS: True
+    EMAIL_HOST: smtp.gmail.com
+    POSTGRES_DB: taiga
+    POSTGRES_PORT: 5432
+    EMAIL_PORT: 587
+    EMAIL_HOST_USER: youremail@gmail.com
+    EMAIL_HOST_PASSWORD: yourpassword
+    SECRET_KEY: Z2nwo3KDU24Qie7jX2uStFuukaJ92JFO
+  links:
+    - db:postgres
+  volumes_from:
+    - data
+taigafront:
+  image: originals/taiga-front
+  hostname: dev.magnus.com
+  links:
+    - taigaback:taiga-back
+  volumes_from:
+    - data
+  ports:
+    -  0.0.0.0:80:80
+~
