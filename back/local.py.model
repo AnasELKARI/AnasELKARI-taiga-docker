@@ -33,7 +33,7 @@ DATABASES = {
 
 
 
-
+CHANGE_NOTIFICATIONS_MIN_INTERVAL=800
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
