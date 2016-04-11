@@ -2,10 +2,10 @@
 data:
   image: tianon/true
   volumes:
-    - ~/vmtaiga/data:/var/lib/postgresql/data
-    - ~/vmtaiga/media:/usr/local/taiga/media
-    - ~/vmtaiga/static:~/vmtaiga/data:/usr/local/taiga/static
-    - ~/vmtaiga/logs:/usr/local/taiga/logs
+    - /home/rancher/vmtaiga/data:/var/lib/postgresql/data
+    - /home/rancher/vmtaiga/media:/usr/local/taiga/media
+    - /home/rancher/vmtaiga/static:~/vmtaiga/data:/usr/local/taiga/static
+    - /home/rancher/vmtaiga/logs:/usr/local/taiga/logs
 db:
   image: postgres
   environment:
