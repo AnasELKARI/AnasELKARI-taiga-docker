@@ -44,8 +44,8 @@ done
 echo "migrate database"
 python manage.py migrate --noinput
 
-#echo "starting django $@"
-#exec "$@"
+echo "starting django $@"
+exec "$@"
 
 
 python manage.py runserver 0.0.0.0:8000
