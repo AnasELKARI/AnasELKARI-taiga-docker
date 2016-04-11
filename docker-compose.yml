@@ -29,6 +29,8 @@ taiga-back:
     - db:postgres
   volumes_from:
     - data
+  ports:
+    - 0.0.0.0:8000:8000
 taiga-front:
   build: front
   hostname: dev.magnus.com
