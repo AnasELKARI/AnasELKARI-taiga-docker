@@ -4,7 +4,7 @@ data:
   volumes:
     - /home/rancher/vmtaiga/data:/var/lib/postgresql/data
     - /home/rancher/vmtaiga/media:/usr/local/taiga/media
-    - /home/rancher/vmtaiga/static:~/vmtaiga/data:/usr/local/taiga/static
+    - /home/rancher/vmtaiga/static:/usr/local/taiga/static
     - /home/rancher/vmtaiga/logs:/usr/local/taiga/logs
 db:
   image: postgres
