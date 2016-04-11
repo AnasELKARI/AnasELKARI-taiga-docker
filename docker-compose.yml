@@ -13,8 +13,8 @@ db:
     POSTGRES_PASSWORD: password
   volumes_from:
     - data
-taigaback:
-  image: originals/taiga-back
+taiga-back:
+  build: back
   hostname: dev.magnus.com
   environment:
     EMAIL_USE_TLS: True
@@ -29,8 +29,8 @@ taigaback:
     - db:postgres
   volumes_from:
     - data
-taigafront:
-  image: originals/taiga-front
+taiga-front:
+    build: front
   hostname: dev.magnus.com
   links:
     - taigaback:taiga-back
