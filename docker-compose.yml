@@ -33,7 +33,7 @@ taiga-front:
   build: front
   hostname: dev.magnus.com
   links:
-    - taigaback:taiga-back
+    - taiga-back:taiga-back
   volumes_from:
     - data
   ports:
