@@ -22,8 +22,8 @@ taiga-back:
     POSTGRES_DB: taiga
     POSTGRES_PORT: 5432
     EMAIL_PORT: 587
-    EMAIL_HOST_USER: youremail@gmail.com
-    EMAIL_HOST_PASSWORD: mypassword
+    EMAIL_HOST_USER: taiga.magnus-cloud@hotmail.com
+    EMAIL_HOST_PASSWORD: magnus123456
     SECRET_KEY: Z2nwo3KDU24Qie7jX2uStFuukaJ92JFO
   links:
     - db:postgres
