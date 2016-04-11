@@ -37,5 +37,4 @@ taigafront:
   volumes_from:
     - data
   ports:
-    -  0.0.0.0:80:80
-~
+    - 0.0.0.0:80:80
