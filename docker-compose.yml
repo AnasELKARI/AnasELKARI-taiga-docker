@@ -40,3 +40,5 @@ taiga-front:
     - data
   ports:
     - 0.0.0.0:80:80
+  environment:
+    - "API_NAME=boot2docker"
